@@ -18,7 +18,7 @@ const ExportedColor=()=>{
         localStorage.setItem('saved',JSON.stringify(temp))
     }
     const share =()=>{
-        const domain = process.env.DOMAIN || 'http:localhost:3000/exports/'
+        const domain = 'https://colorpallete.vercel.app/exports/'
         const url = (domain+router.query.id)
         navigator.clipboard.writeText(url)
         console.log(url)
