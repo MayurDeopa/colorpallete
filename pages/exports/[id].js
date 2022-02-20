@@ -18,7 +18,7 @@ const ExportedColor=()=>{
         localStorage.setItem('saved',JSON.stringify(temp))
     }
     const share =()=>{
-        const url = ('http://localhost:3000/exports/'+router.query.id)
+        const url = ('https://colorpallete.vercel.app/'+router.query.id)
         navigator.clipboard.writeText(url)
         console.log(url)
     }
