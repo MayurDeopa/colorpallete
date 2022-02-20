@@ -49,7 +49,6 @@ export const getColorsFromString=(str)=>{
     for(let i=0 , o =0;i<=4;i++,o+=6){
         arr[i]=getCOlorObject(hash.concat(str.substr(o,6)),i)
     }
-    console.log(arr)
     return arr
 }
 
