@@ -7,7 +7,6 @@ import { ColorContext } from "../_app"
 
 
 const ExportedColor=()=>{
-    const [colors,setColors] = useState()
     const router = useRouter()
     const {id} = router.query
     const {saved} = useContext(ColorContext)
@@ -34,12 +33,13 @@ const ExportedColor=()=>{
                     <button onClick={share}><BiShare/></button>
                 </div>
                 <div className={styles.generator}>
-                {colors.map((c)=>{
+                {colors.map((c,i)=>{
                     return (
                         <div style={{
                             backgroundColor :c.color,
                             
                         }}
+                            key={i}
                             className={styles.color}
                         >
                             <div className={styles.icons} onClick={()=>navigator.clipboard.writeText(c.color)}>
