@@ -1,0 +1,59 @@
+.saved{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 1rem;
+    width: 100%;
+}
+
+.palette{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    height: 12rem;
+    width: 14rem;
+    box-shadow: rgba(0, 0, 0, 0.07) 0px 1px 2px, rgba(0, 0, 0, 0.07) 0px 2px 4px, rgba(0, 0, 0, 0.07) 0px 4px 8px, rgba(0, 0, 0, 0.07) 0px 8px 16px, rgba(0, 0, 0, 0.07) 0px 16px 32px, rgba(0, 0, 0, 0.07) 0px 32px 64px;
+    border-radius: 4px;
+    position: relative;
+}
+
+.title{
+    font-size: 30px;
+}
+
+.palette_colors{
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    height: 2rem;
+    width: 100%;
+    margin-top: 3rem;
+    padding: 1rem;
+}
+
+.color{
+    height: 2rem;
+    width: 2rem;
+    border-radius: 50%;
+}
+
+.delete{
+    position: absolute;
+    right: 0.3rem;
+    top: 0.3rem;
+    height: 1.5rem;
+    width: 1.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #36392d;
+    border-radius: 50%;
+    padding: 0.2rem;
+    cursor: pointer;
+}
+
+.delete:hover{
+    background-color: #36392d;
+    color: white;
+}
