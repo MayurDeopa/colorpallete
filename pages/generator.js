@@ -13,7 +13,7 @@ const Generator=()=>{
     const [savedColors,setSavedColors] = saved
     const [colors,setColors] = useState([])
     useEffect(()=>{
-        setColors(generateColors(colors))
+        setColors(()=>generateColors(colors))
     },[])
     const handleChange =()=>{
         const palette = generateColors(colors)
