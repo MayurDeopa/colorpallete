@@ -53,7 +53,7 @@ export const getColorsFromString=(str)=>{
 }
 
 export const generateUrlFromArray =(arr)=>{
-    let url ='https://colorpallete.vercel.app/exports/'
+    let url =process.env.DOMAIN || 'https://localhost:3000/exports/'
     let colorString= ""
     for(let i=0;i<arr.length;i++){
         colorString += arr[i].color.substr(1)
