@@ -15,7 +15,6 @@ const Saved = ()=>{
 
     const deletePalette =(palette)=>{
         let temp = savedColors
-        console.log(temp)
         const temp2 = temp.filter((p)=>{
             return p!==palette
         })

@@ -14,7 +14,6 @@ const Generator=()=>{
     const [colors,setColors] = useState([])
    
     const colorsFromUrl = router.query.colorCode
-    console.log(colorsFromUrl)
     useEffect(()=>{
         if(colorsFromUrl)setColors(()=>getColorsFromString(colorsFromUrl))
         
