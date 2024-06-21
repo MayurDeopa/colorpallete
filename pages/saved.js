@@ -3,20 +3,30 @@ import Link from "next/link"
 import { useContext, useEffect } from "react"
 import styles from '../styles/Saved.module.css'
 import { ColorContext } from "./_app"
-import {BiX} from 'react-icons/bi'
+import {BiX,BiLinkExternal} from 'react-icons/bi'
+import { useRouter } from "next/router"
+import { generateUrlFromArray } from "../actions/generateColors"
 
 const Saved = ()=>{
+
+    const router = useRouter()
     const {saved} = useContext(ColorContext)
     const [savedColors,setSavedColors] = saved
 
     const deletePalette =(palette)=>{
         let temp = savedColors
+        console.log(temp)
         const temp2 = temp.filter((p)=>{
             return p!==palette
         })
         setSavedColors(temp2)
         localStorage.setItem('saved',JSON.stringify(temp2))
     }
+
+    const viewPallete = (palette)=>{
+        router.push(generateUrlFromArray(palette))
+    }
+
     return (
         <div className="page_wrapper">
             <Head>
@@ -29,8 +39,11 @@ const Saved = ()=>{
                     savedColors.map((p,i)=>{
                         return(
                             <div key={i} className={styles.palette}>
-                                <p className={styles.title}>{i}</p>
+                               <div className={styles.palette_header}>
+                               <div className={styles.delete} onClick={()=>viewPallete(p)}><BiLinkExternal/></div>
                                 <div className={styles.delete} onClick={()=>deletePalette(p)}><BiX/></div>
+                             
+                               </div>
                                 <div className ={styles.palette_colors}>
                                     {p.map((c,i)=>{
                                         return (

@@ -4,7 +4,7 @@ import {BiArrowBack} from 'react-icons/bi'
 const Back =()=>{
     const router = useRouter()
     const goBack=()=>{
-        router.back()
+        router.push('/')
     }
 
     return (

@@ -10,7 +10,7 @@
 }
 
 .color{
-    height:93vh;
+    height:93.1vh;
     width:100%;
     display:flex;
     justify-content:center;
@@ -19,6 +19,35 @@
     gap:2rem;
     color:white;
     font-size:25px;
+    position: relative;
+}
+
+.expand{
+    position: absolute;
+   height: 100%;
+    left: -30%;
+    /* height: 30px; */
+    width: 60%;
+   display: flex;
+   align-items: center;
+   justify-content: center;
+        /* border-radius: 50%;
+        background-color: white; */
+}
+
+/* .expand:hover{
+    border: solid 1px blue;
+} */
+
+.expand_icon{
+    height: 30px;
+    width: 30px;
+    background-color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
 }
 
 .header{
@@ -70,13 +99,21 @@
 
 @media screen and (max-width:500px) {
     .generator{
+        height: 100%;
         flex-direction: column;
     }
     
     .color{
-        height: 4rem;
+        height: 25%;
         width: 100%;
         flex-direction: row;
+    }
+
+    .expand{
+        height: 80%;
+        top: -40%;
+        width: 100%;
+        left:unset;
     }
 }
 

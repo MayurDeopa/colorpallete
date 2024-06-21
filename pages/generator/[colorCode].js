@@ -1,10 +1,10 @@
-import { generateColors, generateUrlFromArray} from "../actions/generateColors"
+import { generateColors, generateUrlFromArray, getColorsFromString} from "../../actions/generateColors"
 import { useContext, useEffect, useState } from "react"
-import Color from "../components/Color"
-import styles from '../styles/Generator.module.css'
+import Color from '../../components/Color'
+import styles from '../../styles/Generator.module.css'
 import Head from "next/head"
 import { BiBookmark,BiColorFill ,BiShare} from "react-icons/bi"
-import { ColorContext } from "./_app"
+import { ColorContext } from "../_app"
 import { useRouter } from "next/router"
 
 const Generator=()=>{
@@ -12,12 +12,17 @@ const Generator=()=>{
     const {saved} = useContext(ColorContext)
     const [savedColors,setSavedColors] = saved
     const [colors,setColors] = useState([])
+   
+    const colorsFromUrl = router.query.colorCode
+    console.log(colorsFromUrl)
     useEffect(()=>{
-        setColors(()=>generateColors(colors))
-    },[])
+        if(colorsFromUrl)setColors(()=>getColorsFromString(colorsFromUrl))
+        
+    },[router.isReady])
     const handleChange =()=>{
         const palette = generateColors(colors)
         setColors(palette)
+        router.push(generateUrlFromArray(palette))
     }
     const save=()=>{
         let temp = savedColors
@@ -27,7 +32,7 @@ const Generator=()=>{
     }
     const share =()=>{
         navigator.clipboard.writeText(generateUrlFromArray(colors))
-        router.push(generateUrlFromArray(colors))
+        // router.push(generateUrlFromArray(colors))
     }
     return (
         <div className="page_wrapper">
@@ -42,7 +47,7 @@ const Generator=()=>{
                 </div>
                 <div className={styles.generator}>
                     {colors?.map((c,i)=>{
-                        return <Color key={i} color={c} changes={{
+                        return <Color key={i} color={c} index={i} changes={{
                             globalState:[colors,setColors]
                         }}/>
                     })}
